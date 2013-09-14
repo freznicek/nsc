@@ -36,11 +36,11 @@ Example of usage
                               --save-data=nsc.srl --load-data=nsc.srl
   </code></pre>
   
-  * running nsc in incremental interval non-adaptive mode for 1 hour
+  * running nsc in incremental interval adaptive mode (interval <60s;30min;1hour>) for 10 hours
   <pre><code>$ python nsc.py [--verbose]
                               --host=localhost --host ...
                               --interval $((30*60)) --interval-min $((60))  --interval-max $((60*60))
-                              --cfg-ping-cnt=5 --duration=60
+                              --cfg-ping-cnt=5 --duration=$((10*60*60))
                               --save-data=nsc.srl --load-data=nsc.srl
   </code></pre>
   
