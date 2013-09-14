@@ -1,6 +1,8 @@
 '''
 Network statistics collaborator
 
+by freznice, GPL v2
+
 Pure python network analysis tool:
   * based on specified IP addresses
   * network analysis methods
