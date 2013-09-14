@@ -39,7 +39,7 @@ def ping(in_host, in_cnt = 3, in_to = 10, in_size = None):
   int_re_loss = re.compile('([0-9]+)%');
   int_re_timing = re.compile('rtt min/avg/max/mdev = [0-9.]+/([0-9.]+)/([0-9.]+)/([0-9.]+)');
   if (platform.system() == 'Windows'):
-    int_re_timing = re.compile(', [^=]+ = ([0-9.]+)ms$');
+    int_re_timing = re.compile('([0-9.]+)ms[ ]*$');
   
   p = subprocess.Popen(int_cmdline, stdout=subprocess.PIPE,
                        universal_newlines=True);
