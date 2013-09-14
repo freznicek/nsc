@@ -32,17 +32,17 @@ Usage examples
   
   * running nsc in incremental interval non-adaptive mode forever
   <pre><code>$ python nsc.py [--verbose]
-                   --host=localhost --host ...
-                   --interval 3600 --cfg-ping-cnt=5
-                   --save-data=nsc.srl --load-data=nsc.srl
+                    --host=localhost --host ...
+                    --interval 3600 --cfg-ping-cnt=5
+                    --save-data=nsc.srl --load-data=nsc.srl
   </code></pre>
   
-  * running nsc in incremental interval adaptive mode (interval <60s;30min;1hour>) for 10 hours
+  * running nsc in incremental interval adaptive mode (interval < 60s ; 30min ; 1hour > ) for 10 hours
   <pre><code>$ python nsc.py [--verbose]
-                   --host=localhost --host ...
-                   --interval $((30*60)) --interval-min $((60))  --interval-max $((60*60))
-                   --cfg-ping-cnt=5 --duration=$((10*60*60))
-                   --save-data=nsc.srl --load-data=nsc.srl
+                    --host=localhost --host ...
+                    --interval $((30*60)) --interval-min $((60))  --interval-max $((60*60))
+                    --cfg-ping-cnt=5 --duration=$((10*60*60))
+                    --save-data=nsc.srl --load-data=nsc.srl
   </code></pre>
   
   * displaying current results
@@ -109,8 +109,8 @@ nsc.py                main python engine
 License
 -------
 
-GPL v2
-http://www.gnu.org/licenses/gpl-2.0.html
+GPL v3
+http://www.gnu.org/licenses/gpl-3.0.html
 
 
 .eof
