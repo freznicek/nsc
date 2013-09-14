@@ -7,9 +7,9 @@ Idea
 ----
 
 Let's have home or SOHO network.
-There will be day when you start feeling that yo need to monitor the network.
+There will be day when you start feeling that you need to monitor the network.
 
-In my particular case I had SOHO network between two offices (two buildings), main office had ISP provider connection to internet (main network segment) and the other remote office with wifi bridge (remote network segment).
+In my particular case I admin SOHO network between two offices (two buildings), main office had ISP provider connection to internet (main network segment) and the other remote office with wifi bridge (remote network segment).
 Mutual signal optical visibility is moderate at 75 meters, much betetr at 100 meters.
 
 Having multiple network segments connected via 802.11n wireless bridges is sensitive to signal distortion specially in the case when you use indoor wifi omnidirirectional antennas instead of proper outdoor directional point-to-point ones.
