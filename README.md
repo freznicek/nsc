@@ -1,7 +1,7 @@
 nsc
 ===
 
-Network statistics collaborator
+Network statistics collector
 
 Idea
 ----
@@ -15,7 +15,7 @@ Mutual signal optical visibility is moderate at 75 meters, much betetr at 100 me
 Having multiple network segments connected via 802.11n wireless bridges is sensitive to signal distortion specially in the case when you use indoor wifi omnidirirectional antennas instead of proper outdoor directional point-to-point ones.
 
 
-Network statistics collaborator (nsc) helps to detect and collect needed socket timing information among existing LAN segments.
+Network statistics collector (nsc) helps to detect and collect needed socket timing information among existing LAN segments.
 The principle is very easy:
  * selected machines (among LAN segments) run nsc and collect network statistics
  * nsc collects information and store it in text platform independent format
@@ -27,8 +27,9 @@ The principle is very easy:
    * ping packet timing
    * TODO
 
-Example of usage
-----------------
+Usage examples
+--------------
+  
   * running nsc in incremental interval non-adaptive mode forever
   <pre><code>$ python nsc.py [--verbose]
                               --host=localhost --host ...
@@ -54,7 +55,7 @@ Command-line interface
 <pre><code>$
  python nsc.py --help-long
 
-Network statistics collaborator
+Network statistics collector
 
 Pure python network analysis tool:
   * based on specified IP addresses
