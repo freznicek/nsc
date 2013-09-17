@@ -214,7 +214,7 @@ if __name__ == "__main__":
                 action="store", default=None,
                 help="Save/store data from a file (def: %default)",
                 metavar="OFN");
-  op.add_option("--hosts", dest="hosts", action="append", default=[ ],
+  op.add_option("--host", dest="hosts", action="append", default=[ ],
                 help="Add hosts for check (def: %default)");
   op.add_option("--cfg-ping-cnt", dest="cfg_ping_cnt", type="int",
                 action="store", default=3,
@@ -264,7 +264,9 @@ if __name__ == "__main__":
                           '192.168.10.100', '192.168.10.101', '192.168.10.103',
                           '192.168.10.104', '192.168.10.105', '192.168.10.106',
                           '192.168.10.107', '192.168.10.108' ];
-    int_opts['interval'] = 60 * 60;
+    int_opts['interval'] = 30 * 60.0;
+    int_opts['interval_min'] = 2 * 60.0;
+    int_opts['interval_max'] = 60 * 60.0;
     dt = datetime.datetime.fromtimestamp(time.time());
     int_opts['save_data'] = 'nsc_%s%s.srl' % (dt.year, dt.month);
     int_opts['load_data'] = int_opts['save_data'];
