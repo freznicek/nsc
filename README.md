@@ -9,7 +9,7 @@ Idea
 Let's have home or SOHO network.
 There will be day when you start feeling that you need to monitor the network.
 
-In my particular case I admin SOHO network between two offices (two buildings), main office had ISP provider connection to internet (main network segment) and the other remote office with wifi bridge (remote network segment).
+In my particular case I admin SOHO network between two offices (two buildings), main office have ISP provider connection to internet (main network segment) and the other remote office with wifi bridge (remote network segment).
 Mutual signal optical visibility is moderate at 75 meters, much betetr at 100 meters.
 
 Having multiple network segments connected via 802.11n wireless bridges is sensitive to signal distortion specially in the case when you use indoor wifi omnidirirectional antennas instead of proper outdoor directional point-to-point ones.
@@ -67,15 +67,16 @@ python nsc.py --verbose
               --interval 3 --cfg-ping-cnt=3 --duration=60
               --save-data=/tmp/out.srl --load-data=/tmp/out.srl
 
-
+$ python nsc.py -h
 Usage: nsc.py [options]
 
 Options:
   -h, --help            show this help message and exit
   --load-data=IFN       Load data from a file (def: none)
   --save-data=OFN       Save/store data from a file (def: none)
-  --hosts=HOSTS         Add hosts for check (def: [])
+  --host=HOSTS          Add hosts for check (def: [])
   --cfg-ping-cnt=CPC    Ping count per batch (def: 3)
+  --cfg-ping-size=CPC   Ping count per batch (def: none)
   --interval=I          Report interval in sec[s] (def: 10.0)
   --interval-max=INTERVAL_MAX
                         Adaptive interval - maximum in sec[s] (def: none)
