@@ -36,9 +36,24 @@ def ping(in_host, in_cnt = 3, in_to = 10, in_size = None):
   ''' ping using ping client
       return tuple (<loss-percentage>, <avg-time>, <exitcode>)
   '''
-  int_cmdline = ['ping', '-c', str(in_cnt), str(in_host)];
+  
+  # define ping command
+  int_cmdline = ['ping', '-c'];
   if (platform.system() == 'Windows'):
-    int_cmdline = ['ping', '-n', str(in_cnt), str(in_host)];
+    int_cmdline = ['ping', '-n'];
+  int_cmdline.append(str(in_cnt));
+  
+  # append packet size (if defined)
+  if (in_size != None):
+    if (platform.system() == 'Windows'):
+      int_cmdline.append('-l');
+    else:
+      int_cmdline.append('-s');
+    int_cmdline.append(str(in_size));
+  
+  # append the host
+  int_cmdline.append(str(in_host));
+  
   int_re_loss = re.compile('([0-9]+)%');
   int_re_timing = re.compile('rtt min/avg/max/mdev = [0-9.]+/([0-9.]+)/([0-9.]+)/([0-9.]+)');
   if (platform.system() == 'Windows'):
@@ -153,7 +168,9 @@ def main(in_opts):
     i_closs = 0.0;
     for i_ip in in_opts['hosts']:
       # browse the IPs
-      loss, avg_time, ecode = ping(i_ip, in_cnt = in_opts['cfg_ping_cnt']);
+      loss, avg_time, ecode = ping(i_ip, in_cnt = in_opts['cfg_ping_cnt'],
+                                   in_to = 10,
+                                   in_size = in_opts['cfg_ping_size']);
       i_t_list.append( ( i_ip, loss, avg_time ) );
     
     # add the data to main dict
@@ -202,6 +219,9 @@ if __name__ == "__main__":
   op.add_option("--cfg-ping-cnt", dest="cfg_ping_cnt", type="int",
                 action="store", default=3,
                 help="Ping count per batch (def: %default)", metavar="CPC");
+  op.add_option("--cfg-ping-size", dest="cfg_ping_size", type="int",
+                action="store", default=None,
+                help="Ping count per batch (def: %default)", metavar="CPC");
   op.add_option("--interval", dest="interval", type="float",
                 action="store", default=10.0,
                 help="Report interval in sec[s] (def: %default)",
@@ -248,6 +268,8 @@ if __name__ == "__main__":
     dt = datetime.datetime.fromtimestamp(time.time());
     int_opts['save_data'] = 'nsc_%s%s.srl' % (dt.year, dt.month);
     int_opts['load_data'] = int_opts['save_data'];
+    int_opts['cfg_ping_cnt'] = 5;
+    int_opts['cfg_ping_size'] = 1000;
   
   if (int_opts['report_data']):
     # report current data
